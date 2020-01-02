@@ -1,0 +1,15 @@
+<svg width="76px" height="76px" viewBox="0 0 76 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8054) - http://www.bohemiancoding.com/sketch -->
+    <title>play</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="iPad" sketch:type="MSArtboardGroup" transform="translate(-1611.000000, -1399.000000)" fill="#4A4A4A">
+            <g id="control" sketch:type="MSLayerGroup" transform="translate(1254.000000, 1238.000000)">
+                <g id="play-+-fwd-+-rwd" transform="translate(270.000000, 161.204444)" sketch:type="MSShapeGroup">
+                    <polygon id="play" transform="translate(124.568889, 36.925778) rotate(90.000000) translate(-124.568889, -36.925778) " points="124.568889 0 161.642963 73.8515556 87.4948148 73.8515556 "></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

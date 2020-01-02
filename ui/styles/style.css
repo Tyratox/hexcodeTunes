@@ -1,0 +1,387 @@
+*{
+	padding:0;
+	margin:0;
+	text-decoration:none;
+	font-family:"Lato", sans-serif;
+	font-weight:300;
+	font-size:16px;
+}
+html, a{
+	color:#000;
+}
+*:not(input){
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+	cursor: default;
+}
+:focus{
+    outline: none;
+}
+#menuBar{
+	position:fixed;
+	z-index:10;
+	top:0;
+	left:0;
+	right:0;
+	height:75px;
+	background-color: #E74C3C;
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+}
+#menuBar .title{
+	color:#fff;
+	padding-left:10px;
+	font-size:45px;
+	line-height:75px;
+}
+#page{
+	position:absolute;
+	top:100px;
+	left:10px;
+	right:10px;
+	z-index:2;
+}
+div.album{
+	float:left;
+	margin-right:10px;
+	margin-bottom:8px;
+	cursor: pointer;
+}
+.album img{
+	cursor: pointer;
+	height:200px;
+	width:200px;
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+}
+.albumDesc{
+	max-width:200px;
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.album:target .border{
+	position:absolute;
+	margin-top:-205px;
+	margin-left:-2px;
+	height:200px;
+	width:200px;
+	border:#E74C3C 2px solid;
+}
+.album:target > div.albumWindow{
+	display:block;
+	z-index:1;
+	opacity:1;
+}
+.album > .albumWindow > a > .closeAlbum{
+	position:absolute;
+	right:10px;
+	top:10px;
+}
+.album > .albumWindow > a:hover > .closeAlbum{
+	color:#E74C3C;
+}
+.album > .albumWindow{
+	position: absolute;
+	left:0;
+	right:0;
+	background-color: #fff;
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	margin-top:5px;
+	transition: opacity .5s ease-in-out;
+	
+	z-index:-1;
+	opacity:0;
+	display:none;
+}
+.album > .albumWindow > *:not(.noFloat){
+	float:left;
+}
+.album > .albumWindow > .albumTechDetails{
+	position: absolute;
+	top:320px;
+	left:10px;
+}
+.album > .albumWindow > .albumDetails{
+	margin:10px 0px 10px 10px;
+	width: calc(100% - 330px );
+}
+.album > .albumWindow > .albumDetails > .albumName{
+	text-transform: uppercase;
+	font-size:175%;
+}
+.album .trackTitle{
+	cursor: pointer;
+}
+.album > .albumWindow > .albumDetails > .albumArtist{
+	text-transform: uppercase;
+	margin-left:1px;
+}
+.album > .albumWindow > img.coverBig{
+	margin:10px 0px 40px 10px;
+	width:300px;
+	height:300px;
+}
+.album > .albumWindow > .albumDetails > ul{
+	list-style-type:none;
+	padding-top:10px;
+}
+.album > .albumWindow > .albumDetails > ul li span.trackTitle{
+	margin-left:1%;
+	cursor:pointer;
+}
+/*Player*/
+#cover{
+	background-size: 115px 115px;
+	position: absolute;
+	top:5px;
+	bottom:5px;
+	left:5px;
+	height: 115px;
+	width:115px;
+}
+#rightContainer{
+	position: absolute;
+	top:5px;
+	right:0;
+	left:130px;
+	bottom:0;
+}
+#trackDetails span{
+	font-size:80%;
+}
+#trackTitle, #trackDetails{
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	max-width:185px;
+}
+#progress{
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:0%;
+	height:2.5px;
+	background-color:#E74C3C;
+	transition: width .5s linear;
+}
+/* Controls */
+#out{
+	position: absolute;
+	right:5px;
+	top:5px;
+	cursor:pointer;
+}
+#out:hover svg *{
+	fill:#E74C3C;
+}
+#out svg{
+	height:15px;
+	width: 15px;
+}
+#audioControl{
+	position:fixed;
+	width:325px;
+	height:125px;
+	right:10px;
+	bottom:10px;
+	z-index:9;
+	
+	background-color:#fff;
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	
+	transition: all .5s ease-in-out;
+}
+.moveOut{
+	right:-500px !important;
+}
+.btn:hover svg *{
+	fill:#E74C3C;
+	stroke:#E74C3C;
+}
+#btns{
+	position: absolute;
+	bottom: 0;
+}
+#btns > *{
+	float:left;
+	padding-right:5px;
+}
+#forward, #forward svg, #rewind, #rewind svg{
+	width:25px;
+	height:auto;
+}
+#pause, #pause svg, #play, #play svg{
+	height:35px;
+	width:35px;
+}
+#pause svg, #play svg{
+	margin-top:4px;
+}
+#play svg{
+	position:absolute;
+	margin-left:2px;
+}
+#uploadWindow{
+	position:absolute;
+	left:20%;
+	right:20%;
+	min-width:600px;
+	background-color:#fff;
+	
+	padding-bottom:10px;
+	
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	
+	display:none;
+}
+#uploadWindow h1, #loginWindow h1, #errorWindow h1{
+	padding-left:10px;
+	font-size:300%;
+	font-weight:100;
+}
+.uploadField{
+	padding:5px 0px 5px 0px;
+}
+#uploadWindow form{
+	width:40%;
+}
+#uploadWindow input, #uploadWindow label{
+	margin-left:10px;
+	width:calc(100% - 20px);
+}
+#uploadCoverPreview{
+	max-height: calc(100% - 20px);
+	position: absolute;
+	bottom:10px;
+	top:10px;
+	right:10px;
+	
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+}
+#theLoadingBar{
+	position: fixed;
+	top:0;
+	left:0;
+	height:75px;
+	z-index:12;
+	background-color:rgba(0,0,0,0.2);
+	width:0%;
+	
+	transition: width 1s linear;
+}
+input[type=submit], button{
+	border:none;
+	color:#fff;
+	background-color:#E74C3C;
+	padding: 5px 0px 5px 0px;
+	font-size:110%;
+}
+input[type=submit]:hover, button:hover{
+	background-color:#c82e29;
+}
+#contextMenu{
+	display:none;
+	position: absolute;
+	background-color:#fff;
+	left:0;
+	top:0;
+	min-width:200px;
+	z-index:99;
+	
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+}
+#contextMenu h1{
+	font-size:130%;
+	padding-left: 3px;
+	padding-right: 10px;
+	/* color:#E74C3C; */
+}
+#contextMenu ul{
+	list-style: none;
+}
+#contextMenu li{
+	padding:2px 10px 2px 5px;
+	cursor: pointer;
+}
+#contextMenu li:hover{
+	background-color:#E74C3C;
+	color:#fff;
+}
+#errorWindow{
+	position:absolute;
+	left:20%;
+	right:20%;
+	min-width:600px;
+	background-color:#fff;
+	
+	padding-bottom:10px;
+	
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	
+	display:none;
+}
+#errorWindow span#errorMessage{
+	font-size:120%;
+	padding-left:10px;
+	color:#E74C3C;
+}
+.close{
+	position:absolute;
+	right:10px;
+	top:10px;
+	cursor: pointer;
+}
+.close:hover{
+	color:#E74C3C;
+}
+/** Login **/
+#loginWindow{
+	position:absolute;
+	top:120px;
+	left:27%;
+	right:27%;
+	
+	padding-bottom:10px;
+	
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+}
+#loginWindow input, #loginWindow label{
+	width:calc(100% - 20px);
+	margin-left:10px;
+	font-size:200%;
+	font-weight:100;
+}
+#loginWindow input[type=submit]{
+	font-weight:200;
+	cursor:pointer;
+}
+.inputDesc{
+	width:calc(100% - 10px);
+	font-weight:100;
+	text-align:right;
+}
+.pointer{
+	cursor: pointer;
+}
